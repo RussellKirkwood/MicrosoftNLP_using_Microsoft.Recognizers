@@ -26,6 +26,8 @@ namespace Helpers
         // This will use both Microsoft Recognizer 
         public List<NLPTextResults> NPLProcessing(string words)
         {
+            var textresultsRecognizer = new List<NLPTextResults>()
+            
             try
             {
                 var results = ParseAll(words, defaultCulture).OrderBy(a => a.Start);                
@@ -51,7 +53,7 @@ namespace Helpers
 
             //    // Now use Stanford NLP                 
 
-            return (SortedList);
+            return (textresultsRecognizer);
         }
 
         
