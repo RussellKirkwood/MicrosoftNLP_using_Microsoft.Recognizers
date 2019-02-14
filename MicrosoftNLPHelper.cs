@@ -61,53 +61,38 @@ namespace Helpers
         private static IEnumerable<ModelResult> ParseAll(string query, string culture)
         {
             return MergeResults(
-                // Number recognizer will find any number from the input
-                // E.g "I have two apples" will return "2".
+                // Number recognizer will find any number from the input               
                 NumberRecognizer.RecognizeNumber(query, culture),
 
-                // Ordinal number recognizer will find any ordinal number
-                // E.g "eleventh" will return "11".
+                // Ordinal number recognizer will find any ordinal number                
                 NumberRecognizer.RecognizeOrdinal(query, culture),
 
-                // Percentage recognizer will find any number presented as percentage
-                // E.g "one hundred percents" will return "100%"
+                // Percentage recognizer will find any number presented as percentage                
                 NumberRecognizer.RecognizePercentage(query, culture),
 
-                // Number Range recognizer will find any cardinal or ordinal number range
-                // E.g. "between 2 and 5" will return "(2,5)"
+                // Number Range recognizer will find any cardinal or ordinal number range                
                 NumberRecognizer.RecognizeNumberRange(query, culture),
 
-                // Age recognizer will find any age number presented
-                // E.g "After ninety five years of age, perspectives change" will return "95 Year"
+                // Age recognizer will find any age number presented                
                 NumberWithUnitRecognizer.RecognizeAge(query, culture),
 
-                // Currency recognizer will find any currency presented
-                // E.g "Interest expense in the 1988 third quarter was $ 75.3 million" will return "75300000 Dollar"
+                // Currency recognizer will find any currency presented                
                 NumberWithUnitRecognizer.RecognizeCurrency(query, culture),
 
-                // Dimension recognizer will find any dimension presented
-                // E.g "The six-mile trip to my airport hotel that had taken 20 minutes earlier in the day took more than three hours." will return "6 Mile"
+                // Dimension recognizer will find any dimension presented                
                 NumberWithUnitRecognizer.RecognizeDimension(query, culture),
 
-                // Temperature recognizer will find any temperature presented
-                // E.g "Set the temperature to 30 degrees celsius" will return "30 C"
+                // Temperature recognizer will find any temperature presented                
                 NumberWithUnitRecognizer.RecognizeTemperature(query, culture),
 
-                // Datetime recognizer This model will find any Date even if its write in coloquial language 
-                // E.g "I'll go back 8pm today" will return "2017-10-04 20:00:00"
+                // Datetime recognizer This model will find any Date even if its write in coloquial language                
                 DateTimeRecognizer.RecognizeDateTime(query, culture),
 
-                // PhoneNumber recognizer will find any phone number presented
-                // E.g "My phone number is ( 19 ) 38294427."
+                // PhoneNumber recognizer will find any phone number presented               
                 SequenceRecognizer.RecognizePhoneNumber(query, culture),
 
-                // Add IP recognizer - This recognizer will find any Ipv4/Ipv6 presented
-                // E.g "My Ip is 8.8.8.8"
-                SequenceRecognizer.RecognizeIpAddress(query, culture)
-
-                // Add Boolean recognizer - This model will find yes/no like responses, including emoji -
-                // E.g "yup, I need that" will return "True"
-                //ChoiceRecognizer.RecognizeBoolean(query, culture)
+                // Add IP recognizer - This recognizer will find any Ipv4/Ipv6 presented               
+                SequenceRecognizer.RecognizeIpAddress(query, culture)                
                 );
         }
 
